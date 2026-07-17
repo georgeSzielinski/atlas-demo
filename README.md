@@ -1,27 +1,38 @@
-# Atlas Demo
+# Atlas Showcase
 
-A browser-only, static demonstration of the Atlas investment-research experience.
+A security-sanitized Atlas source snapshot plus a browser-only fixture-mode demo built from the real React frontend components and view-model selectors.
 
 ## Safety boundary
 
-- No backend or API routes
-- No network requests, credentials, databases, cookies, analytics, or user-data collection
-- No market-data provider, broker, portfolio, account, order, or trading integration
-- All displayed values, events, scenarios, and research labels are deterministic synthetic fixtures
+- No deployed backend or API routes
+- No runtime `fetch`/XHR, credentials, databases, cookies, analytics, or user-data collection
+- No market-data provider, broker, account, order, or trading integration
+- Only four read-only product views are available: Mission Control, Recommendation Explorer, Research Memory, and Learning Center
+- All displayed values, events, scenarios, and research labels are deterministic synthetic fixtures served from an in-memory adapter
 - Educational demonstration only; not financial advice
 
-## Run locally
+## Review the real code
 
-Open `index.html` in a browser, or serve the directory with any static file server:
+`atlas-source/` contains the audited, history-free Atlas source snapshot. See [SOURCE_SNAPSHOT.md](SOURCE_SNAPSHOT.md) for the public-release boundary and exclusions.
+
+## Run the fixture demo locally
 
 ```bash
-python3 -m http.server 8000
+cd demo
+npm ci
+npm run dev
 ```
 
-Then visit `http://localhost:8000`.
+For a production-equivalent build:
+
+```bash
+cd demo
+npm run build
+npm run preview
+```
 
 ## Publish safely
 
-This repository is intentionally history-free and contains no `.env` file, dependency lockfile, backend code, or deployment secret. It is suitable for static hosting such as GitHub Pages.
+This repository is intentionally history-free. The source snapshot has no `.env`, credential, database, cache, backup, or deployment secret. The GitHub Pages workflow deploys only `demo/dist`, never `atlas-source/`.
 
 Before public release, run a secret scan, inspect the Git history, and verify the deployed page in an incognito browser.
