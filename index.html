@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Atlas Demo — a static, educational investment-research interface using synthetic data." />
+    <title>Atlas Demo — Investment Research, Safely Simulated</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">ATLAS · STATIC DEMO</p>
+        <h1>Explainable investment research,<br />safely simulated.</h1>
+        <p class="lede">A browser-only preview of Atlas research workflows. No account connection, market-data request, trade execution, personal data, or server is involved.</p>
+        <div class="notice" role="note"><strong>Educational demo only.</strong> All values and events are synthetic. This is not financial advice or a trading platform.</div>
+      </header>
+
+      <section class="toolbar" aria-label="Demo controls">
+        <label for="ticker">Example company</label>
+        <select id="ticker">
+          <option value="AAPL">AAPL · Apple</option>
+          <option value="MSFT">MSFT · Microsoft</option>
+          <option value="NVDA">NVDA · NVIDIA</option>
+        </select>
+        <button id="refresh" type="button">Reload fixture</button>
+        <span id="data-status" aria-live="polite">Fixture data loaded locally</span>
+      </section>
+
+      <section class="grid overview" aria-label="Research overview">
+        <article class="card score-card"><p class="label">Research posture</p><p id="posture" class="posture">WATCH</p><p id="confidence" class="muted"></p><p class="fine-print">A research label, not a recommendation or instruction.</p></article>
+        <article class="card"><p class="label">Synthetic reference price</p><p id="price" class="metric"></p><p id="price-note" class="muted"></p></article>
+        <article class="card"><p class="label">Evidence health</p><p id="evidence-health" class="metric"></p><p id="evidence-note" class="muted"></p></article>
+        <article class="card"><p class="label">Risk posture</p><p id="risk" class="metric"></p><p id="risk-note" class="muted"></p></article>
+      </section>
+
+      <section class="grid detail">
+        <article class="card wide"><div class="section-heading"><div><p class="label">Evidence timeline</p><h2>What the demo considers</h2></div><span class="chip">Deterministic fixtures</span></div><ol id="timeline" class="timeline"></ol></article>
+        <article class="card"><p class="label">Research checks</p><h2>Transparent constraints</h2><ul id="checks" class="checks"></ul></article>
+      </section>
+
+      <section class="card"><div class="section-heading"><div><p class="label">Scenario lens</p><h2>Questions, not forecasts</h2></div><span class="chip neutral">No predictive model</span></div><div id="scenarios" class="scenario-grid"></div></section>
+
+      <footer>Atlas Demo runs entirely in your browser from versioned fixture data. <a href="https://github.com/georgeSzielinski/atlas-demo" target="_blank" rel="noreferrer">View source on GitHub</a></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
